@@ -8,6 +8,7 @@ import PageTitle from "./PageTitle";
 import ProductDetails from "./ProductDetails";
 import Signature from "./Signature";
 import ThreeproductsGallery from "./ThreeProductsGallery";
+import ProductsElements from "./ProductsElements"
 
 import Footer from "./Footer";
 
@@ -23,4 +24,5 @@ export {
   ProductDetails,
   Signature,
   ThreeproductsGallery,
+  ProductsElements,
 };

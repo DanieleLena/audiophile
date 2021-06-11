@@ -5,10 +5,18 @@
   --crl-primary: hsl(22, 65%, 57%);
   --crl-primary-light: hsl(21, 94%, 75%);
   --crl-black: hsl(0, 0%, 6%);
-  --crl-gray: #f1f1f1;
-  --crl-gray-light: hsl(0, 0%, 98%);
-
+  --crl-gray: #a8a7a7;
+  --crl-gray-light: hsl(0, 0%, 93%);
   --max-width: 1350px;
+
+  /* min-width */
+  --mq-small: 768px;
+  --mq-medium: 1025px;
+  --mq-large: 1366px;
+
+  --red: red;
+
+
 }
 *,
 ::after,
@@ -16,14 +24,19 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  
 }
-
+/* important ======================================================= */
 html {
   font-size: 62.5%;
 }
+/* important ======================================================= */
+
 
 body {
   font-family: "Manrope", sans-serif;
+  position: relative;
+  
   
 }
 ul {
@@ -100,6 +113,45 @@ p {
   line-height: 2.5rem;
 }
 
+@media (max-width: 767px) {
+  h1 {
+  font-size: 3.6rem;
+  font-weight: 700;
+  line-height: 3.8rem;
+  letter-spacing: 0.2rem;
+}
+h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 2.2rem;
+  letter-spacing: 0.15rem;
+}
+h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 2.2rem;
+  letter-spacing: 0.115rem;
+}
+h4 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  line-height: 3.8rem;
+  letter-spacing: 0.2rem;
+}
+h5 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 3.3rem;
+  letter-spacing: 0.17rem;
+}
+h6 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 2.4rem;
+  letter-spacing: 0.13rem;
+}
+}
+
 button {
   width: 16rem;
   height: 4.8rem;
@@ -109,9 +161,10 @@ button {
   background-color: var(--crl-primary);
   text-transform: uppercase;
   border: none;
-  margin: 1rem;
+  margin: 0 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
+  
 }
 button:hover {
   background-color: var(--crl-primary-light);

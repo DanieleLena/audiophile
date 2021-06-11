@@ -1,21 +1,20 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from "react";
+import styled from "styled-components";
+import {Hero, ThreeproductsGallery} from "./../components"
 
 const HomePage = () => {
-    return (
-        <Wrapper>
-            
-        <div>
-            <h1>This is Home Page</h1>
-        </div>
-        </Wrapper>
-    )
-}
+  return (
+    <Wrapper>
+      <Hero />
+      <ThreeproductsGallery/>
+    </Wrapper>
+  );
+};
 
-const Wrapper = styled.section`
-width: 100%;
-height: 100vh;
-background-color: var(--crl-black);
-`
+const Wrapper = styled.main`
+  width: 90%;
+  margin: 0 auto;
+  
+`;
 
-export default HomePage
+export default HomePage;

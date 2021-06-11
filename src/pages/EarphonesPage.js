@@ -1,11 +1,18 @@
-import React from 'react'
+import React from "react";
+import styled from "styled-components";
+import { PageTitle,ProductsElements } from "./../components";
 
 const EarphonesPage = () => {
-    return (
-        <div>
-            
-        </div>
-    )
-}
 
-export default EarphonesPage
+  return (<>
+   <PageTitle title="earphones" />;
+   <Wrapper>
+     <ProductsElements category="earphones" />
+   </Wrapper>
+ </>)
+};
+
+const Wrapper = styled.main`
+
+`
+export default EarphonesPage;

@@ -1,4 +1,5 @@
-[
+export const data = [
+ 
   {
     "id": 1,
     "slug": "yx1-earphones",
@@ -490,3 +491,4 @@
     ]
   }
 ]
+
