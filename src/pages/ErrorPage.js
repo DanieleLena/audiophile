@@ -6,28 +6,43 @@ import {Link} from "react-router-dom";
 const ErrorPage = () => {
     return (
       <>
-    <PageTitle title="Page not Found"/>
-      <Wrapper>
-                 <img src={image404} alt="page not found"/>
-                <Link to="/"><button>Back Home</button></Link> 
-      </Wrapper>
+        <PageTitle title="Page not Found" />
+        <Wrapper>
+          <img src={image404} alt="page not found" />
+          <Link to="/">
+            <button>Back Home</button>
+          </Link>
+          <p>
+            <a href="https://pngtree.com/so/web-page">
+              web page png from pngtree.com
+            </a>
+          </p>
+        </Wrapper>
       </>
     );
 }
 const Wrapper = styled.section`
-width: 100vw;
-height: 100vh;
-background-color: wheat;
-display: flex;
-flex-direction: column;
-justify-content:flex-start ;
-align-items: center;
-
-img {
-  width: 30%;
+  width: 100%;
+  background-color: wheat;
   position: relative;
-  left: 2%;
-}
-`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  img {
+    width: 30%;
+    position: relative;
+    left: 2%;
+  }
+  button {
+    margin-bottom: 5rem;
+  }
+  p {
+    position: absolute;
+    bottom: 0%;
+    font-size: 0.8rem;
+  }
+`;
 
 export default ErrorPage

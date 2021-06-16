@@ -8,7 +8,7 @@ import {
   Headphones,
   Speakers,
   Earphones,
-  SingleProduct,
+  SingleProductPage,
   Checkout,
 } from "./pages";
 
@@ -20,15 +20,20 @@ function App() {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route path="/headphones">
+        <Route exact path="/headphones">
           <Headphones />
         </Route>
-        <Route path="/speakers">
+        <Route exact path="/speakers">
           <Speakers />
         </Route>
-        <Route path="/earphones">
+        <Route exact path="/earphones">
           <Earphones />
         </Route>
+        <Route
+          exact
+          path="/:category/:id"
+          children={<SingleProductPage />}
+        ></Route>
         <Route path="*">
           <Error />
         </Route>

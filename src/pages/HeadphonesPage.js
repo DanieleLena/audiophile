@@ -1,16 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
-import {PageTitle, ProductsElements} from "./../components"
+import {PageTitle, ProductsElements,Signature,ThreeproductsGallery} from "./../components"
 
 const HeadphonesPage = () => {
     return (
-<Wrapper>
-       <PageTitle title="headphones"/>
-       <ProductsElements category="headphones"/>
-       </Wrapper>
-    )
+      <>
+        <PageTitle title="headphones" />
+        <Wrapper className="pagination">
+          <ProductsElements category="headphones" />
+          <ThreeproductsGallery />
+          <Signature />
+        </Wrapper>
+      </>
+    );
 }
 const Wrapper = styled.main`
+
+
 `
 
 export default HeadphonesPage

@@ -58,8 +58,8 @@ const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  width: 90%;
   margin: auto;
-  padding-top: 10vw;
 
   .product-box {
     width: 100%;
@@ -108,8 +108,11 @@ const Wrapper = styled.section`
   }
   @media (min-width: 768px) {
     flex-direction: row;
+    margin-bottom: 5rem;
+
     .product-box {
       width: 25vw;
+      max-width: 400px;
       margin: 1rem;
     }
     .product-box::after {
@@ -117,6 +120,11 @@ const Wrapper = styled.section`
       height: 40vh;
       top: -60%;
     }
+  }
+  @media (min-width: 1025px) {
+    width: 100%;
+    margin-top:20rem;
+    max-width: var(--max-width);
   }
 `;
 

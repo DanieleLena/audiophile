@@ -11,6 +11,7 @@ import {
 const Footer = () => {
   return (
     <Wrapper>
+      <div className="footer-container">
       <div className="logo">
         <img src={logo} alt="logo" />
       </div>
@@ -51,16 +52,20 @@ const Footer = () => {
           <AiOutlineInstagram />
         </i>
       </div>
+      </div>
     </Wrapper>
   );
 };
 const Wrapper = styled.footer`
-  width: 100vw;
+  width: 100%;
   background-color: var(--crl-black);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+
+  .footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
   .logo {
     margin-top: 3rem;
     margin-bottom: 3rem;
@@ -105,7 +110,7 @@ const Wrapper = styled.footer`
       cursor: pointer;
     }
     i:hover {
-        color:var(--crl-primary);
+      color: var(--crl-primary);
     }
   }
 
@@ -130,22 +135,25 @@ const Wrapper = styled.footer`
     .icon-container {
       position: relative;
       top: -7rem;
-      left: 60%;
     }
   }
   @media (min-width: 1025px) {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 10%;
-
+    .footer-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      max-width: var(--max-width);
+      width: 90%;
+      margin: auto;
+      max-width: var(--max-width);
+    }
     ul {
       justify-content: flex-end;
     }
     li {
-        margin-right: 3rem;
+      margin-right: 3rem;
     }
     li:nth-child(4) {
-        margin-right: 0;
+      margin-right: 0;
     }
 
     .icon-container {
@@ -153,7 +161,6 @@ const Wrapper = styled.footer`
       position: static;
       display: flex;
       justify-content: flex-end;
-      
     }
   }
 `;

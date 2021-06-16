@@ -1,12 +1,13 @@
 import React from "react";
 import styled from "styled-components";
-import {Hero, ThreeproductsGallery} from "./../components"
+import {Hero, ThreeproductsGallery,Signature} from "./../components"
 
 const HomePage = () => {
   return (
     <Wrapper>
       <Hero />
       <ThreeproductsGallery/>
+      <Signature />
     </Wrapper>
   );
 };

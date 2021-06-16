@@ -7,15 +7,13 @@
   --crl-black: hsl(0, 0%, 6%);
   --crl-gray: #a8a7a7;
   --crl-gray-light: hsl(0, 0%, 93%);
+
   --max-width: 1350px;
 
   /* min-width */
   --mq-small: 768px;
   --mq-medium: 1025px;
   --mq-large: 1366px;
-
-  --red: red;
-
 
 }
 *,
@@ -24,7 +22,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  
 }
 /* important ======================================================= */
 html {
@@ -32,20 +29,20 @@ html {
 }
 /* important ======================================================= */
 
-
 body {
   font-family: "Manrope", sans-serif;
   position: relative;
-  
-  
+}
+main,section {
+  max-width: var(--max-width);
 }
 ul {
   list-style-type: none;
 }
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
+a {
+  text-decoration: none;
+  color: inherit;
+}
 
 h1,
 h2,
@@ -61,30 +58,36 @@ h1 {
   font-weight: 700;
   line-height: 5.8rem;
   letter-spacing: 0.2rem;
+  margin-bottom: 3rem;
 }
 h2 {
   font-size: 4rem;
   font-weight: 700;
   line-height: 4, 4rem;
   letter-spacing: 0.15rem;
+  margin-bottom: 2.5rem;
+
 }
 h3 {
   font-size: 3.2rem;
   font-weight: 700;
   line-height: 3.6rem;
   letter-spacing: 0.115rem;
+  margin-bottom: 2rem;
 }
 h4 {
   font-size: 2.8rem;
   font-weight: 700;
   line-height: 3.8rem;
   letter-spacing: 0.2rem;
+  margin-bottom: 1.5rem;
 }
 h5 {
   font-size: 2.4rem;
   font-weight: 700;
   line-height: 3.3rem;
   letter-spacing: 0.17rem;
+  margin-bottom: 1rem;
 }
 h6 {
   font-size: 1.8rem;
@@ -104,52 +107,56 @@ h6 {
   font-size: 1.3rem;
   font-weight: 700;
   line-height: 2.5rem;
-  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+    letter-spacing: 1rem;
+    margin-bottom: 2.5rem;
 }
 
 p {
   font-size: 1.5rem;
   font-weight: 500;
   line-height: 2.5rem;
+  color: var(--crl-gray);
+  margin-bottom: 2.5rem;
 }
 
 @media (max-width: 767px) {
   h1 {
-  font-size: 3.6rem;
-  font-weight: 700;
-  line-height: 3.8rem;
-  letter-spacing: 0.2rem;
-}
-h2 {
-  font-size: 2rem;
-  font-weight: 700;
-  line-height: 2.2rem;
-  letter-spacing: 0.15rem;
-}
-h3 {
-  font-size: 1.8rem;
-  font-weight: 700;
-  line-height: 2.2rem;
-  letter-spacing: 0.115rem;
-}
-h4 {
-  font-size: 2.8rem;
-  font-weight: 700;
-  line-height: 3.8rem;
-  letter-spacing: 0.2rem;
-}
-h5 {
-  font-size: 2.4rem;
-  font-weight: 700;
-  line-height: 3.3rem;
-  letter-spacing: 0.17rem;
-}
-h6 {
-  font-size: 1.8rem;
-  font-weight: 700;
-  line-height: 2.4rem;
-  letter-spacing: 0.13rem;
-}
+    font-size: 3.6rem;
+    font-weight: 700;
+    line-height: 3.8rem;
+    letter-spacing: 0.2rem;
+  }
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 2.2rem;
+    letter-spacing: 0.15rem;
+  }
+  h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 2.2rem;
+    letter-spacing: 0.115rem;
+  }
+  h4 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    line-height: 3.8rem;
+    letter-spacing: 0.2rem;
+  }
+  h5 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 3.3rem;
+    letter-spacing: 0.17rem;
+  }
+  h6 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 2.4rem;
+    letter-spacing: 0.13rem;
+  }
 }
 
 button {
@@ -164,7 +171,6 @@ button {
   margin: 0 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
-  
 }
 button:hover {
   background-color: var(--crl-primary-light);
@@ -188,3 +194,16 @@ button:hover {
   background-color: transparent;
   color: var(--crl-primary);
 }
+
+
+.pagination {
+width: 90%;
+margin: auto;
+}
+/* @media (min-width: 1025px) {
+  
+  .pagination {
+  padding: 0 10%;
+} */
+/* } */
+

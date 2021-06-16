@@ -5,11 +5,11 @@ import App from './App';
 import {ProductsProvider} from "./context/product_context"
 
 ReactDOM.render(
-  <React.StrictMode>
+ 
 <ProductsProvider>
     <App />
 </ProductsProvider>    
-  </React.StrictMode>,
+ ,
   document.getElementById('root')
 );
 
