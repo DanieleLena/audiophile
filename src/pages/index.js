@@ -14,4 +14,5 @@ export {
   Earphones,
   SingleProductPage,
   Checkout,
+  
 };

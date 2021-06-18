@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import { useProductsContext } from "../context/product_context";
-import { ThreeproductsGallery, Signature, ProductDetails } from "../components";
+import { ThreeproductsGallery, Signature,Counter } from "../components";
 import data from "../data.json";
 
 const SingleProductPage = () => {
@@ -14,10 +14,22 @@ const SingleProductPage = () => {
     single_product_loading,
     fetchSingleProducts,
     getImageUrl,
+    formatPrice,
+    addToCart
   } = useProductsContext();
 
+   const [amount, setAmount] = useState(1);
+
+     const increase = () => {
+       setAmount(amount + 1);
+     };
+     const decrease = () => {
+       if (amount > 1) {
+         setAmount(amount - 1);
+       }
+       }
+
   useEffect(() => {
-    console.log("inside use effect");
     if (products.length > 1) {
       fetchSingleProducts(id);
     }
@@ -31,7 +43,9 @@ const SingleProductPage = () => {
     );
   }
 
+
   console.log(single_product);
+
   const {
     name,
     image,
@@ -54,14 +68,15 @@ const SingleProductPage = () => {
           {single_product.new && <p className="sub-title">New Product</p>}
           <h1>{name}</h1>
           <p>{description}</p>
-          <h3>{price}</h3>
+          <h3>{formatPrice(price)}</h3>
           <div className="buttons">
-            <div className="counter">
-              <button className="minus">-</button>
-              <div className="display">1</div>
-              <button className="plus">+</button>
-            </div>
-            <button className="addToCart">Add to cart</button>
+            <Counter amount={amount} increase={increase} decrease={decrease} />
+            <button
+              className="addToCart"
+              onClick={() => addToCart(single_product, amount)}
+            >
+              Add to cart
+            </button>
           </div>
         </div>
       </article>
@@ -125,24 +140,8 @@ const Wrapper = styled.main`
     display: flex;
     margin-bottom: 3rem;
   }
-  .counter {
-    width: 50%;
-    display: flex;
-  }
-  .minus,
-  .plus,
-  .display {
-    background-color: var(--crl-gray-light);
-    width: 30%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: black;
-    font-size: 2rem;
-    margin: 0;
-    text-align: center;
-    font-family: "Manrope", sans-serif;
-  }
+  
+
   li {
     font-size: 2rem;
     color: var(--crl-gray);

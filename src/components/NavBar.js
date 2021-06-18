@@ -3,9 +3,19 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import logo from "./../assets/shared/desktop/logo.svg";
-import {GiHamburgerMenu} from "react-icons/gi"
+import {GiHamburgerMenu} from "react-icons/gi";
+import {Cart} from "../components";
+import { useState } from "react";
 
 const NavBar = () => {
+
+
+  const [isCartOpen, setIsCartOpen] = useState(false);
+
+  const toggleCart = () => {    
+    setIsCartOpen(!isCartOpen);
+  }
+
   return (
     <Wrapper>
       <div className="hamburger-menu">
@@ -36,9 +46,12 @@ const NavBar = () => {
           <Link to="/earphones">Earphones</Link>{" "}
         </li>
       </ul>
-      <div className="cart-container">
+      <button className="cart-container" onClick={toggleCart}>
         <AiOutlineShoppingCart />
-      </div>
+      </button>
+      {isCartOpen &&<Cart/> }
+
+     
     </Wrapper>
   );
 };
@@ -58,6 +71,8 @@ const Wrapper = styled.nav`
   .cart-container {
     font-size: 4rem;
     cursor: pointer;
+    background: none;
+    width: auto;
   }
   ul {
     display: none;

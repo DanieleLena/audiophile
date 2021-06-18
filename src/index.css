@@ -196,14 +196,9 @@ button:hover {
 }
 
 
+
 .pagination {
 width: 90%;
 margin: auto;
 }
-/* @media (min-width: 1025px) {
-  
-  .pagination {
-  padding: 0 10%;
-} */
-/* } */
 

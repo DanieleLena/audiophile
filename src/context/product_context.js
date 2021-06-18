@@ -8,7 +8,7 @@ const initialState = {
   products: [],
   single_product_loading: false,
   single_product: {},
-  image_url: {},
+  cart: [],
 };
 
 const ProductsContext = React.createContext();
@@ -37,10 +37,22 @@ export const ProductsProvider = ({ children }) => {
     }
   };
 
-  const getImageUrl = (imageArray) => {
-    console.log(imageArray);
+  const addToCart = (product, amount) => {
+    dispatch({type: "ADD_TO_CART", payload: {product,amount}})
+  }
+  const removeTocart = () => {
     
-    // dispatch(type: "GET_IMAGE_URL", payload: imageArray)
+  }
+
+  const removeAllToCart = () => {
+dispatch({type: "REMOVE_ALL_TO_CART"})
+
+  }
+   const toggleAmount = (name, value) => {
+     dispatch({ type: "TOGGLE_CART_ITEM_AMOUNT", payload: { name, value } });
+   };
+
+  const getImageUrl = (imageArray) => {    
     const hostUrl = "https://github.com/DanieleLena/audiophile/blob/master/src";
     let formatRelativePath = "";
 
@@ -65,6 +77,14 @@ export const ProductsProvider = ({ children }) => {
       return hostUrl + formatRelativePath + "?raw=true";
     }
   };
+  const formatPrice = (number) => {
+    const newNumber = Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+    }).format(number / 100);
+
+    return newNumber;
+  };
 
   useEffect(() => {
     fetchProducts(data);
@@ -72,7 +92,20 @@ export const ProductsProvider = ({ children }) => {
  
 
   return (
-    <ProductsContext.Provider value={{ ...state,fetchProducts, getImageUrl,fetchSingleProducts }}>
+    <ProductsContext.Provider
+      value={{
+        ...state,
+        fetchProducts,
+        getImageUrl,
+        fetchSingleProducts,
+        formatPrice,
+        addToCart,
+        removeAllToCart,
+        removeTocart,
+        toggleAmount
+        
+      }}
+    >
       {children}
     </ProductsContext.Provider>
   );
