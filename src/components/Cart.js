@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { useProductsContext } from "../context/product_context";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { Counter } from "../components";
 import { Link } from "react-router-dom";
 
@@ -29,6 +29,7 @@ const Cart = ({toggleCart}) => {
 
   useEffect(() => {
     getTotal();
+    // eslint-disable-next-line
   }, [cart]);
 
   return (

@@ -3,17 +3,14 @@ const products_reducer = (state, action) => {
     return { ...state, products_loading: true };
   }
   if (action.type === "GET_PRODUCTS_SUCCESS") {
-    console.log(" ALL THE PRODUCTS SUCCESS");
     console.log(action.payload);
     return { ...state, products_loading: false, products: action.payload };
   }
   if (action.type === "GET_PRODUCTS_ERROR") {
-    console.log("ERRRRRRROR");
 
     return { ...state };
   }
   if (action.type === "GET_SINGLE_PRODUCT_BEGIN") {
-    console.log("LOADING SINGLE PRODUCTS");
 
     return { ...state, single_product_loading: false };
   }
@@ -59,8 +56,7 @@ const products_reducer = (state, action) => {
   }
   if (action.type === "TOGGLE_CART_ITEM_AMOUNT") {
     const { name, value } = action.payload;
-    console.log(name);
-    console.log(value);
+  
 
     const tempCart = state.cart.map((item) => {
       if (item.name === name) {
@@ -89,7 +85,7 @@ let totalAmount = 0;
         const {amount, price} = item;
 
         let subtotal = amount * price;
-        totalAmount = totalAmount + subtotal;
+        return totalAmount = totalAmount + subtotal;
       })
       
       return {...state, total_amount: totalAmount} 

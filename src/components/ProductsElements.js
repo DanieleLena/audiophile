@@ -29,12 +29,10 @@ const ProductsElements = ({ category }) => {
           name,
           image,
           category,
-          price,
           slug,
           description,
-          features,
         } = item;
-        http: return (
+         return (
           <article className="product-card" key={id}>
             <div className="image-container">
               <img src={getImageUrl(image)} alt={name} />

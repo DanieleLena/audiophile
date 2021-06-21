@@ -1,7 +1,6 @@
 import React from "react";
-import styled from "styled-components";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { NavBar, Footer } from "./components";
+import { NavBar, Footer, ScrollToTop } from "./components";
 import {
   Home,
   Error,
@@ -11,11 +10,11 @@ import {
   SingleProductPage,
   Checkout,
 } from "./pages";
-import CheckoutPage from "./pages/CheckoutPage";
 
 function App() {
   return (
     <Router>
+      <ScrollToTop/>
       <NavBar />
       <Switch>
         <Route exact path="/">
@@ -47,6 +46,6 @@ function App() {
   );
 }
 
-const Wrapper = styled.section``;
+
 
 export default App;

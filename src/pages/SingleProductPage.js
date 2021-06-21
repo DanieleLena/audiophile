@@ -4,7 +4,6 @@ import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import { useProductsContext } from "../context/product_context";
 import { ThreeproductsGallery, Signature,Counter } from "../components";
-import data from "../data.json";
 
 const SingleProductPage = () => {
   const { id } = useParams();
@@ -33,6 +32,7 @@ const SingleProductPage = () => {
     if (products.length > 1) {
       fetchSingleProducts(id);
     }
+    // eslint-disable-next-line
   }, [products]);
 
   if (!single_product_loading) {
@@ -44,7 +44,6 @@ const SingleProductPage = () => {
   }
 
 
-  console.log(single_product);
 
   const {
     name,
