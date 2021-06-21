@@ -82,6 +82,19 @@ const products_reducer = (state, action) => {
     });
     return { ...state, cart: tempCart };
   }
+    if (action.type === "GET_TOTAL") {
+let totalAmount = 0;
+
+      state.cart.map((item)=> {
+        const {amount, price} = item;
+
+        let subtotal = amount * price;
+        totalAmount = totalAmount + subtotal;
+      })
+      
+      return {...state, total_amount: totalAmount} 
+    }
+
 
   throw new Error(`No Matching "${action.type}" - action type`);
 };

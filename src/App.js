@@ -11,6 +11,7 @@ import {
   SingleProductPage,
   Checkout,
 } from "./pages";
+import CheckoutPage from "./pages/CheckoutPage";
 
 function App() {
   return (
@@ -34,6 +35,9 @@ function App() {
           path="/:category/:id"
           children={<SingleProductPage />}
         ></Route>
+        <Route exact path="/checkout">
+          <Checkout />
+        </Route>
         <Route path="*">
           <Error />
         </Route>

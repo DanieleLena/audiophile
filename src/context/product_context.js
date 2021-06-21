@@ -9,6 +9,8 @@ const initialState = {
   single_product_loading: false,
   single_product: {},
   cart: [],
+  total_amount: 0,
+  shipping_fee: 50,
 };
 
 const ProductsContext = React.createContext();
@@ -51,6 +53,10 @@ dispatch({type: "REMOVE_ALL_TO_CART"})
    const toggleAmount = (name, value) => {
      dispatch({ type: "TOGGLE_CART_ITEM_AMOUNT", payload: { name, value } });
    };
+
+   const getTotal = () => {
+     dispatch({type: "GET_TOTAL"})
+   }
 
   const getImageUrl = (imageArray) => {    
     const hostUrl = "https://github.com/DanieleLena/audiophile/blob/master/src";
@@ -102,7 +108,8 @@ dispatch({type: "REMOVE_ALL_TO_CART"})
         addToCart,
         removeAllToCart,
         removeTocart,
-        toggleAmount
+        toggleAmount,
+        getTotal
         
       }}
     >

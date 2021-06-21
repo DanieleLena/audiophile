@@ -36,6 +36,7 @@ const Wrapper = styled.section`
     top: 25vh;
     width: 80%;
     text-align: center;
+    z-index: 0;
 
     color: white;
     p {

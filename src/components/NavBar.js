@@ -14,6 +14,7 @@ const NavBar = () => {
 
   const toggleCart = () => {    
     setIsCartOpen(!isCartOpen);
+    document.body.classList.toggle("no-scroll");
   }
 
   return (
@@ -49,7 +50,7 @@ const NavBar = () => {
       <button className="cart-container" onClick={toggleCart}>
         <AiOutlineShoppingCart />
       </button>
-      {isCartOpen &&<Cart/> }
+      {isCartOpen &&<Cart toggleCart={toggleCart  }/> }
 
      
     </Wrapper>

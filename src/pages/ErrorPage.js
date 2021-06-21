@@ -29,6 +29,8 @@ const Wrapper = styled.section`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  max-width: none;
+  z-index: -1;
 
   img {
     width: 30%;

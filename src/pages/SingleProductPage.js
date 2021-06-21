@@ -73,7 +73,7 @@ const SingleProductPage = () => {
             <Counter amount={amount} increase={increase} decrease={decrease} />
             <button
               className="addToCart"
-              onClick={() => addToCart(single_product, amount)}
+              onClick={() => addToCart(single_product, amount) }
             >
               Add to cart
             </button>
