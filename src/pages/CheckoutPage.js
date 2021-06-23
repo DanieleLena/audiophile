@@ -66,12 +66,12 @@ const CheckoutPage = () => {
         })}
         <div className="total">
           <div className="line">
-            <h5>Total</h5>
-            <h4>{formatPrice(total_amount)}</h4>
+            <h6>Total</h6>
+            <h6>{formatPrice(total_amount)}</h6>
           </div>
           <div className="line">
-            <h5>Shipping</h5>
-            <h4>{formatPrice(shipping_fee)}</h4>
+            <h6>Shipping</h6>
+            <h6>{formatPrice(shipping_fee)}</h6>
           </div>
           <div className="line">
             <h4>Grand Total</h4>
@@ -176,6 +176,7 @@ const Wrapper = styled.section`
     margin: auto;
   }
   .grand {
+   
     color: var(--crl-primary);
   }
 

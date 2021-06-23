@@ -3,12 +3,20 @@ import reducer from "./../reducers/products_reducer";
 
 import data from "../data.json"; 
 
+const getLocalStorage = () => {
+  let cart = localStorage.getItem("cart");
+  if(cart) {
+    return JSON.parse(localStorage.getItem("cart"));
+  }else {
+    return []
+  }
+}
 const initialState = {
   products_loading: false,
   products: [],
   single_product_loading: false,
   single_product: {},
-  cart: [],
+  cart: getLocalStorage(),
   total_amount: 0,
   shipping_fee: 5000,
 };
@@ -95,6 +103,9 @@ dispatch({type: "REMOVE_ALL_TO_CART"})
   useEffect(() => {
     fetchProducts(data);
   },[]);
+  useEffect(() => {
+   localStorage.setItem("cart",JSON.stringify(state.cart))
+  }, [state.cart])
  
 
   return (

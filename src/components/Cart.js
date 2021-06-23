@@ -146,6 +146,7 @@ const Wrapper = styled.div`
     height: 100px;
     display: flex;
     align-items: center;
+    margin-bottom: 1rem;
     .text {
       width: 70%;
     }
