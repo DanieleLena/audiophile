@@ -9,8 +9,9 @@ import Signature from "./Signature";
 import ThreeproductsGallery from "./ThreeProductsGallery";
 import ProductsElements from "./ProductsElements";
 import Counter from "./Counter";
-import ScrollToTop from "./ScrollToTop"
-
+import ScrollToTop from "./ScrollToTop";
+import MobileMenu from "./MobileMenu";
+import ModalItemAdded from "./ModalItemAdded";
 import Footer from "./Footer";
 
 export {
@@ -27,4 +28,6 @@ export {
   ProductsElements,
   Counter,
   ScrollToTop,
+  MobileMenu,
+  ModalItemAdded
 };

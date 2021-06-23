@@ -35,7 +35,7 @@ const ProductsElements = ({ category }) => {
          return (
           <article className="product-card" key={id}>
             <div className="image-container">
-              <img src={getImageUrl(image)} alt={name} />
+              <img src={getImageUrl(image)} alt={name} sizes="50vw" />
             </div>
             <div className="text">
               {item.new && <p className="sub-title">New Product</p>}

@@ -36,7 +36,10 @@ const Cart = ({toggleCart}) => {
     <Wrapper>
       <div className="cart">
         <div className="title">
-          <h2>Cart({cart.length})</h2>
+          <h2>
+            Cart
+            <span className="cart-number">({cart.length})</span>
+          </h2>
           <button className="remove-btn" onClick={removeAllToCart}>
             Remove All
           </button>
@@ -44,7 +47,6 @@ const Cart = ({toggleCart}) => {
         {cart.length > 0 ? (
           <div className="body">
             {cart.map((item, index) => {
-
               const { name, amount, images, price } = item;
 
               return (
@@ -52,7 +54,7 @@ const Cart = ({toggleCart}) => {
                   <img src={getImageUrl(images)} alt={name} width="200px"></img>
                   <div className="text">
                     <h5>{name}</h5>
-                    <h6>{subTotal(price, amount)}</h6>
+                    <h5>{subTotal(price, amount)}</h5>
                   </div>
                   <Counter
                     className="counter"
@@ -65,9 +67,7 @@ const Cart = ({toggleCart}) => {
             })}
           </div>
         ) : (
-          <h3>
-            Your cart is empty
-          </h3>
+          <h3>Your cart is empty</h3>
         )}
 
         {cart.length > 0 ? (
@@ -95,32 +95,42 @@ const Cart = ({toggleCart}) => {
 };
 
 const Wrapper = styled.div`
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   position: absolute;
   top: 10vh; //the navbar height
   left: 0;
-  overflow: hidden;
+  /* overflow: hidden; */
   background-color: rgba(37, 36, 36, 0.507);
   z-index: 2;
-  
 
   .cart {
     width: 95%;
     max-width: 500px;
+    max-height: 80vh;
+    overflow-y: scroll;
     /* height: 50vh; */
     padding: 2rem;
     margin: auto;
+    margin-top: 2rem;
     background-color: white;
-    position: relative;
+    position: static;
     top: 5vh;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0;
+    /* left: 50%; */
+    /* transform: translateX(-100%); */
     border-radius: 10px;
     color: black;
     z-index: 9999;
   }
-  .remove-btn {
+  .cart::-webkit-scrollbar {
+  display: none;
+}
+  .cart-number{
+    font-size: 2.5rem;
+    margin-left: 1rem;
+  }
+   .remove-btn {
     background: none;
     color: var(--crl-gray);
     margin: 0;
@@ -165,10 +175,16 @@ const Wrapper = styled.div`
     width: 95%;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 1025px) {
+    position: absolute;
+    left: 0;
+    /* display: none; */
+    width: 100%;
+    max-width: var(--crl-max-width);
     .cart {
-      right: 0%;
+      position: absolute;
       padding: 5rem;
+      left: 60%;
     }
   }
 `;

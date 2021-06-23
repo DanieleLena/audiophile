@@ -84,8 +84,8 @@ const Wrapper = styled.section`
  
   @media (min-width: 1025px) {
     .hero-container{
-      
-          height: 100vh;
+     
+          height: 80vh;
 
     }
 

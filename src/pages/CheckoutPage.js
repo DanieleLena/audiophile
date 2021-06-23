@@ -184,11 +184,11 @@ const Wrapper = styled.section`
     align-items: flex-start;
     justify-content: flex-start;
     margin: 0 auto;
-    padding-top: 13vh;
+    padding-top: 15vh;
     .checkout {
       width: 70%;
       margin: 0 auto;
-      margin-bottom: 5rem;
+      /* margin-bottom: 5re  m; */
 
       max-width: 800px;
     }

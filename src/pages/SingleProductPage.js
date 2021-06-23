@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import { useProductsContext } from "../context/product_context";
-import { ThreeproductsGallery, Signature,Counter } from "../components";
+import { ThreeproductsGallery, Signature,Counter, ModalItemAdded } from "../components";
 
 const SingleProductPage = () => {
   const { id } = useParams();
@@ -18,6 +18,14 @@ const SingleProductPage = () => {
   } = useProductsContext();
 
    const [amount, setAmount] = useState(1);
+   const [dispalayModal, setDisplayModal] = useState(false);
+
+   useEffect(() => {
+   const timer = setTimeout(()=>{
+    setDisplayModal(false);
+   },2000);
+   return () => clearTimeout(timer);
+   }, [dispalayModal])
 
      const increase = () => {
        setAmount(amount + 1);
@@ -58,6 +66,8 @@ const SingleProductPage = () => {
 
   return (
     <Wrapper>
+      {dispalayModal && <ModalItemAdded/>}
+
       <Link className="goBack" to={`/${category}`}>
         Go back
       </Link>
@@ -72,7 +82,7 @@ const SingleProductPage = () => {
             <Counter amount={amount} increase={increase} decrease={decrease} />
             <button
               className="addToCart"
-              onClick={() => addToCart(single_product, amount) }
+              onClick={() => {addToCart(single_product, amount); setDisplayModal(true)} }
             >
               Add to cart
             </button>

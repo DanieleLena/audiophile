@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
@@ -9,10 +9,21 @@ import earphoneImg from "./../assets/shared/desktop/image-earphones.png";
 import { MdKeyboardArrowRight } from "react-icons/md";
 
 const ThreeProductsGallery = () => {
+
+ const [boxActive, setBoxActive] = useState(false);
+ const [boxActive2, setBoxActive2] = useState(false);
+ const [boxActive3, setBoxActive3] = useState(false);
+
+
+  // const boxOverEffect = () => {
+
+  // }
+ 
   return (
     <Wrapper>
       <Link to="/headphones">
-        <div className="product-box">
+        <div className="product-box" onMouseEnter={()=>setBoxActive(true)} onMouseLeave={()=>setBoxActive(false)}>
+          <div className={`image ${boxActive && "active"}`}></div>
           <div className="text">
             <h6>headphones</h6>
             <button className="btn-arrow">
@@ -25,7 +36,8 @@ const ThreeProductsGallery = () => {
         </div>
       </Link>
       <Link to="/speakers">
-        <div className="product-box speakers">
+        <div className="product-box" onMouseEnter={()=>setBoxActive2(true)} onMouseLeave={()=>setBoxActive2(false)}>
+          <div className={`image speakers ${boxActive2 && "active"}`}></div>
           <div className="text">
             <h6>speakers</h6>
             <button className="btn-arrow">
@@ -38,7 +50,8 @@ const ThreeProductsGallery = () => {
         </div>
       </Link>
       <Link to="/earphones">
-        <div className="product-box earphones">
+        <div className="product-box" onMouseEnter={()=>setBoxActive3(true)} onMouseLeave={()=>setBoxActive3(false)}>
+          <div className={`image earphones ${boxActive3 && "active"}`}></div>
           <div className="text">
             <h6>earphones</h6>
             <button className="btn-arrow">
@@ -70,25 +83,27 @@ const Wrapper = styled.section`
     position: relative;
   }
 
-  .product-box::after {
-    content: "";
+  .image {
     width: 100%;
     height: 100%;
     position: absolute;
-    /* background-color: red; */
     background-image: url(${headphoneImg});
     object-fit: fill;
-    background-size: 70%;
+    background-size: 60%;
     background-position: center center;
     background-repeat: no-repeat;
     top: -30%;
+    transition: transform .3s ease-in-out;
   }
-  .speakers::after {
+  .speakers {
     background-image: url(${speakerImg});
   }
-  .earphones::after {
+  .earphones {
     background-image: url(${earphoneImg});
   }
+  .active {
+    transform: translateY(-20%);
+  } 
 
   .text {
     text-align: center;
@@ -123,7 +138,7 @@ const Wrapper = styled.section`
   }
   @media (min-width: 1025px) {
     width: 100%;
-    margin-top:20rem;
+    margin-top: 20rem;
     max-width: var(--max-width);
   }
 `;

@@ -10,7 +10,7 @@ const initialState = {
   single_product: {},
   cart: [],
   total_amount: 0,
-  shipping_fee: 50,
+  shipping_fee: 5000,
 };
 
 const ProductsContext = React.createContext();
