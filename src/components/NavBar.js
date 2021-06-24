@@ -75,7 +75,7 @@ const NavBar = () => {
 
 const Wrapper = styled.nav`
   width: 100%;
-  height: 10vh;
+  height: 97px;
   background-color: var(--crl-black);
   color: white;
 
@@ -98,8 +98,8 @@ const Wrapper = styled.nav`
     width: auto;
   }
   .number {
-    width: 80%;
-    height: 70%;
+    width: 30px;
+    height: 30px;
     position: absolute;
     display: flex;
     align-items: center;
@@ -133,7 +133,9 @@ const Wrapper = styled.nav`
     }
     li {
       margin-right: 1.5rem;
-      font-size: 1.2rem;
+      font-size: 1.3rem;
+      letter-spacing: .2rem;
+      font-size: 700;
       text-transform: uppercase;
       cursor: pointer;
     }

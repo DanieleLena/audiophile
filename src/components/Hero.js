@@ -7,7 +7,7 @@ import heroImageDesktop from "./../assets/home/desktop/image-hero.jpg";
 const Hero = () => {
   return (
     <Wrapper>
-      <div className="hero-container">
+      
         <div className="hero-text">
           <p className="new-product"> New product</p>
           <h1>XX99 Mark II HeadphoneS</h1>
@@ -20,27 +20,26 @@ const Hero = () => {
           </Link>
         </div>
         <div className="hero-image"></div>
-      </div>
+      
     </Wrapper>
   );
 };
 
 const Wrapper = styled.section`
-  .hero-container {
-    height: 70vh;
-    margin-bottom: 2rem;
-   
-  }
+
+height: 80vh;
+display: flex;
+justify-content: center;
+align-items: center;
+
   .hero-text {
-    position: absolute;
-    top: 25vh;
+    
     width: 80%;
     text-align: center;
     z-index: 0;
 
     color: white;
     p {
-      margin: 1.5rem 0;
       color: var(--crl-gray);
     }
   }
@@ -67,8 +66,7 @@ const Wrapper = styled.section`
 
   @media (min-width: 768px) {
     .hero-text {
-      position: static;
-      transform: translateY(50%) translateX(50%);
+     
       width: 50%;
     }
     .new-product {
@@ -82,31 +80,27 @@ const Wrapper = styled.section`
   }
 
   @media (min-width: 1025px) {
-    .hero-container {
-      height: 80vh;
-    }
+
+    justify-content: left;
+    align-items: center;
+    /* height: 800px; */
 
     .hero-text {
-      position: absolute;
-      top: 0;
-      left: 0;
+      
       width: 40%;
-
       text-align: left;
     }
     .hero-image {
       width: 100%;
       height: 100vh;
+      max-width: 2000px;
+      margin:auto;
       position: absolute;
       top: 0;
       left: 0;
       background-image: url(${heroImageDesktop});
     }
   }
-  @media (min-width: 1880px) {
-    .hero-text {
-      width: 30%;
-    }
-  }
+  
 `;
 export default Hero;

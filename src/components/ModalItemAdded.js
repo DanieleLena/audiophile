@@ -13,26 +13,31 @@ const ModalItemAdded = () => {
 }
 
 const Wrapper = styled.div`
-width: 100vw;
-height: 50px;
-background-color: var(--crl-black);
-position: fixed;
-top: 0vh;
-left: 0;
-color: white;
-display: flex;
-justify-content: center;
-align-items:center;
-h3{
-    margin:0;
-}
-.check {
-    color: green;
+  width: 20vw;
+  height: 50px;
+  background-color: white;
+  position: fixed;
+  top: 20vh;
+  left: 50%;
+  transform: translateX(-50%);
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  -webkit-box-shadow: 5px 5px 12px 1px rgba(0, 0, 0, 0.34);
+  box-shadow: 5px 5px 12px 1px rgba(0, 0, 0, 0.34);
+  h3 {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+  .check {
+    color: var(--crl-primary);
     font-size: 3rem;
-}
-.active {
+  }
+  .active {
     display: static;
-}
-`
+  }
+`;
 
 export default ModalItemAdded

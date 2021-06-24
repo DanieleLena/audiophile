@@ -16,29 +16,35 @@ const Counter = ({amount,decrease,increase}) => {
     );
 }
 const Wrapper = styled.div`
+  width: 50%;
+  display: flex;
+  max-width: 200px;
 
-    width: 50%;
-    display: flex;
-    max-width: 200px;
-  
   .minus,
   .plus,
   .display {
     background-color: var(--crl-gray-light);
+    color: var(--crl-gray);
+
     width: 30%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: black;
+    
     font-size: 2rem;
     margin: 0;
     text-align: center;
     font-family: "Manrope", sans-serif;
   }
+  .display {
+    color:black;
+  }
   .minus:hover,
   .plus:hover {
     background-color: var(--crl-gray);
+    color: white;
   }
+  
 `;
 
 export default Counter

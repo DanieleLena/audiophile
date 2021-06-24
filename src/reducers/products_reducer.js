@@ -3,7 +3,6 @@ const products_reducer = (state, action) => {
     return { ...state, products_loading: true };
   }
   if (action.type === "GET_PRODUCTS_SUCCESS") {
-    console.log(action.payload);
     return { ...state, products_loading: false, products: action.payload };
   }
   if (action.type === "GET_PRODUCTS_ERROR") {

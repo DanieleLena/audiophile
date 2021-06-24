@@ -53,7 +53,7 @@ const ThreeProductsGallery = () => {
         <div className="product-box" onMouseEnter={()=>setBoxActive3(true)} onMouseLeave={()=>setBoxActive3(false)}>
           <div className={`image earphones ${boxActive3 && "active"}`}></div>
           <div className="text">
-            <h6>earphones</h6>
+            <h5>earphones</h5>
             <button className="btn-arrow">
               SHOP
               <i>
@@ -68,19 +68,16 @@ const ThreeProductsGallery = () => {
 };
 
 const Wrapper = styled.section`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 90%;
-  margin: auto;
-
   .product-box {
-    width: 100%;
-    height: 28vh;
+    width: 90%;
+    max-width: 400px;
+    height: 165px;
+    margin: auto;
     background-color: var(--crl-gray-light);
     border-radius: 10px;
-    margin-bottom: 10vh;
+    margin-bottom: 80px;
     position: relative;
+    z-index: 1;
   }
 
   .image {
@@ -89,11 +86,11 @@ const Wrapper = styled.section`
     position: absolute;
     background-image: url(${headphoneImg});
     object-fit: fill;
-    background-size: 60%;
+    background-size: 150px;
     background-position: center center;
     background-repeat: no-repeat;
     top: -30%;
-    transition: transform .3s ease-in-out;
+    transition: transform 0.3s ease-in-out;
   }
   .speakers {
     background-image: url(${speakerImg});
@@ -103,16 +100,17 @@ const Wrapper = styled.section`
   }
   .active {
     transform: translateY(-20%);
-  } 
+  }
 
   .text {
     text-align: center;
     width: 100%;
     position: relative;
-    top: 65%;
+    top: 50%;
 
-    h6 {
-      line-height: 1rem;
+    h6,
+    h5 {
+      margin-bottom: 0;
     }
     i {
       position: relative;
@@ -122,24 +120,30 @@ const Wrapper = styled.section`
     }
   }
   @media (min-width: 768px) {
+    display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 5rem;
+    a {
+      width: 30%;
+    }
 
     .product-box {
-      width: 25vw;
-      max-width: 400px;
+      width: 100%;
+      max-width: 4000px;
       margin: 1rem;
-    }
-    .product-box::after {
-      margin: 1rem;
-      height: 40vh;
-      top: -60%;
+      height: 204px;
     }
   }
   @media (min-width: 1025px) {
     width: 100%;
     margin-top: 20rem;
     max-width: var(--max-width);
+
+    .image {
+      background-size: 200px;
+    }
   }
 `;
 

@@ -27,6 +27,7 @@ const Signature = () => {
 }
 
 const Wrapper = styled.article`
+  
   .img-container {
     width: 100%;
     height: 30vh;
@@ -51,11 +52,11 @@ const Wrapper = styled.article`
     }
   }
   @media (min-width: 1025px) {
-      margin-top: 5rem;
-      display: flex;
-      flex-direction: row-reverse;
-      justify-content:space-between;
-      margin-bottom: 5rem;
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    margin-bottom: 5rem;
 
     .img-container {
       width: 50%;
@@ -64,8 +65,8 @@ const Wrapper = styled.article`
       background-size: auto auto;
     }
     .text {
-        width: 50%;
-        margin-right: 3rem;
+      width: 50%;
+      margin-right: 3rem;
     }
   }
 `;

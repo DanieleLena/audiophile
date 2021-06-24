@@ -9,81 +9,87 @@ const CheckoutPage = () => {
 
   return (
     <Wrapper>
-      <form className="checkout" action="submit">
-        <div className="title">
-          <h1>Checkout</h1>
-        </div>
-        <p className="overline">billing details</p>
+      <div className="container">
+        <form className="checkout" action="submit">
+          <div className="title">
+            <h1>Checkout</h1>
+          </div>
+          <p className="overline">billing details</p>
 
-        <label htmlFor="name">Name</label>
-        <input type="text" name="name" placeholder="Alexei Ward" />
-        <label htmlFor="email">Email Address</label>
-        <input type="email" name="email" placeholder="alexei@mail.com" />
-        <label htmlFor="telephone">Phone Number</label>
-        <input type="tel" name="telephone" placeholder="+1 202-555-0136" />
+          <label htmlFor="name">Name</label>
+          <input type="text" name="name" placeholder="Alexei Ward" />
+          <label htmlFor="email">Email Address</label>
+          <input type="email" name="email" placeholder="alexei@mail.com" />
+          <label htmlFor="telephone">Phone Number</label>
+          <input type="tel" name="telephone" placeholder="+1 202-555-0136" />
 
-        <p className="overline">shipping info</p>
+          <p className="overline">shipping info</p>
 
-        <label htmlFor="address">Your Address</label>
-        <input type="text" name="address" placeholder="1137 Williams Avenue" />
-        <label htmlFor="zip">ZIP Code</label>
-        <input type="number" name="zip" placeholder="10001" />
-        <label htmlFor="country">Country</label>
-        <input type="text" name="country" placeholder="United State" />
+          <label htmlFor="address">Your Address</label>
+          <input
+            type="text"
+            name="address"
+            placeholder="1137 Williams Avenue"
+          />
+          <label htmlFor="zip">ZIP Code</label>
+          <input type="number" name="zip" placeholder="10001" />
+          <label htmlFor="country">Country</label>
+          <input type="text" name="country" placeholder="United State" />
 
-        <p className="overline">Payment Details</p>
-        <h6>Payments Method</h6>
+          <p className="overline">Payment Details</p>
+          <h6>Payments Method</h6>
 
-        <label className="radio" htmlFor="e-money">
-          e-Money
-          <input type="radio" id="e-money" name="payment" value="e-money" />
-        </label>
-        <label className="radio" htmlFor="cash">
-          Cash on Delivery
-          <input type="radio" id="cash" name="payment" value="cash" />
-        </label>
-        <br></br>
-        <label htmlFor="e-money-number">e-Money-Number</label>
-        <input type="number" name="e-money-number" placeholder="237584974" />
-        <label htmlFor="e-money-PIN">e-Money-PIN</label>
-        <input type="number" name="e-money-PIN" placeholder="8574" />
-      </form>
-      <div className="summary">
-        <h2>summary</h2>
-        {cart.map((item, index) => {
-          const { name, amount, images, price } = item;
+          <label className="radio" htmlFor="e-money">
+            e-Money
+            <input type="radio" id="e-money" name="payment" value="e-money" />
+          </label>
+          <label className="radio" htmlFor="cash">
+            Cash on Delivery
+            <input type="radio" id="cash" name="payment" value="cash" />
+          </label>
+          <br></br>
+          <label htmlFor="e-money-number">e-Money-Number</label>
+          <input type="number" name="e-money-number" placeholder="237584974" />
+          <label htmlFor="e-money-PIN">e-Money-PIN</label>
+          <input type="number" name="e-money-PIN" placeholder="8574" />
+        </form>
+        <div className="summary">
+          <h2>summary</h2>
+          {cart.map((item, index) => {
+            const { name, amount, images, price } = item;
 
-          return (
-            <div className="item" key={index}>
-              <img src={getImageUrl(images)} alt={name} width="200px"></img>
-              <div className="text">
-                <h5>{name}</h5>
-                <h6>{formatPrice(amount * price)}</h6>
+            return (
+              <div className="item" key={index}>
+                <img src={getImageUrl(images)} alt={name} width="200px"></img>
+                <div className="text">
+                  <h5>{name}</h5>
+                  <h6>{formatPrice(amount * price)}</h6>
+                </div>
+                <div className="quantity">x{amount}</div>
               </div>
-              <div className="quantity">x{amount}</div>
+            );
+          })}
+          <div className="total">
+            <div className="line">
+              <h6>Total</h6>
+              <h6>{formatPrice(total_amount)}</h6>
             </div>
-          );
-        })}
-        <div className="total">
-          <div className="line">
-            <h6>Total</h6>
-            <h6>{formatPrice(total_amount)}</h6>
+            <div className="line">
+              <h6>Shipping</h6>
+              <h6>{formatPrice(shipping_fee)}</h6>
+            </div>
+            <div className="line">
+              <h4>Grand Total</h4>
+              <h3 className="grand">
+                {formatPrice(shipping_fee + total_amount)}
+              </h3>
+            </div>
           </div>
           <div className="line">
-            <h6>Shipping</h6>
-            <h6>{formatPrice(shipping_fee)}</h6>
+            <button className="btn" type="button">
+              Continue &amp; pay
+            </button>
           </div>
-          <div className="line">
-            <h4>Grand Total</h4>
-            <h3 className="grand">
-              {formatPrice(shipping_fee + total_amount)}
-            </h3>
-          </div>
-        </div>
-        <div className="line">
-          <button className="btn" type="button">
-            Continue &amp; pay
-          </button>
         </div>
       </div>
     </Wrapper>
@@ -93,6 +99,11 @@ const CheckoutPage = () => {
 const Wrapper = styled.section`
   background-color: #f2f2f2;
   padding: 5rem 0;
+  max-width: 3000px;
+
+  .container {
+    max-width: var(--max-width);
+  }
   .checkout,
   .summary {
     width: 95%;
@@ -181,20 +192,22 @@ const Wrapper = styled.section`
   }
 
   @media (min-width: 1050px) {
+    .container {
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
     margin: 0 auto;
     padding-top: 15vh;
+    }
     .checkout {
-      width: 70%;
+      width: 60%;
       margin: 0 auto;
       /* margin-bottom: 5re  m; */
 
       max-width: 800px;
     }
     .summary {
-      width: 30%;
+      width: 35%;
       max-width: 500px;
       margin: 0 auto;
     }

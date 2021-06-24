@@ -23,14 +23,16 @@ const SingleProductPage = () => {
   } = useProductsContext();
 
   const [amount, setAmount] = useState(1);
-  const [dispalayModal, setDisplayModal] = useState(false);
+  const [displayModal, setDisplayModal] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setDisplayModal(false);
+    
+      
     }, 2000);
     return () => clearTimeout(timer);
-  }, [dispalayModal]);
+  }, [displayModal]);
 
   const increase = () => {
     setAmount(amount + 1);
@@ -69,7 +71,7 @@ const SingleProductPage = () => {
 
   return (
     <Wrapper>
-      {dispalayModal && <ModalItemAdded />}
+      {displayModal && <ModalItemAdded />}
 
       <Link  to={`/${category}`}>
         <p className="goBack">Go back</p>
@@ -175,7 +177,7 @@ const Wrapper = styled.main`
   }
 
   @media (min-width: 768px) {
-    padding-top: 15vh;
+    padding-top: 100px;
     .topDescription {
       display: flex;
     }
