@@ -30,7 +30,7 @@ const Wrapper = styled.section`
   justify-content: flex-start;
   align-items: center;
   max-width: none;
-  z-index: -1;
+  z-index: 0;
 
   img {
     width: 30%;

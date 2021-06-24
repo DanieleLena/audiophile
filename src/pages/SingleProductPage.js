@@ -3,7 +3,12 @@ import styled from "styled-components";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import { useProductsContext } from "../context/product_context";
-import { ThreeproductsGallery, Signature,Counter, ModalItemAdded } from "../components";
+import {
+  ThreeproductsGallery,
+  Signature,
+  Counter,
+  ModalItemAdded,
+} from "../components";
 
 const SingleProductPage = () => {
   const { id } = useParams();
@@ -14,27 +19,27 @@ const SingleProductPage = () => {
     fetchSingleProducts,
     getImageUrl,
     formatPrice,
-    addToCart
+    addToCart,
   } = useProductsContext();
 
-   const [amount, setAmount] = useState(1);
-   const [dispalayModal, setDisplayModal] = useState(false);
+  const [amount, setAmount] = useState(1);
+  const [dispalayModal, setDisplayModal] = useState(false);
 
-   useEffect(() => {
-   const timer = setTimeout(()=>{
-    setDisplayModal(false);
-   },2000);
-   return () => clearTimeout(timer);
-   }, [dispalayModal])
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDisplayModal(false);
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, [dispalayModal]);
 
-     const increase = () => {
-       setAmount(amount + 1);
-     };
-     const decrease = () => {
-       if (amount > 1) {
-         setAmount(amount - 1);
-       }
-       }
+  const increase = () => {
+    setAmount(amount + 1);
+  };
+  const decrease = () => {
+    if (amount > 1) {
+      setAmount(amount - 1);
+    }
+  };
 
   useEffect(() => {
     if (products.length > 1) {
@@ -51,8 +56,6 @@ const SingleProductPage = () => {
     );
   }
 
-
-
   const {
     name,
     image,
@@ -66,10 +69,10 @@ const SingleProductPage = () => {
 
   return (
     <Wrapper>
-      {dispalayModal && <ModalItemAdded/>}
+      {dispalayModal && <ModalItemAdded />}
 
-      <Link className="goBack" to={`/${category}`}>
-        Go back
+      <Link  to={`/${category}`}>
+        <p className="goBack">Go back</p>
       </Link>
       <article className="topDescription">
         <img className="productImg" src={getImageUrl(image)} alt={name} />
@@ -82,7 +85,10 @@ const SingleProductPage = () => {
             <Counter amount={amount} increase={increase} decrease={decrease} />
             <button
               className="addToCart"
-              onClick={() => {addToCart(single_product, amount); setDisplayModal(true)} }
+              onClick={() => {
+                addToCart(single_product, amount);
+                setDisplayModal(true);
+              }}
             >
               Add to cart
             </button>
@@ -137,8 +143,12 @@ const Wrapper = styled.main`
   margin: auto;
   .goBack {
     font-size: 2rem;
+    line-height: 2rem;
     margin-bottom: 3rem;
     color: var(--crl-gray);
+  }
+  .goBack:hover {
+    text-decoration: underline;
   }
   img {
     max-width: 100%;
@@ -149,7 +159,6 @@ const Wrapper = styled.main`
     display: flex;
     margin-bottom: 3rem;
   }
-  
 
   li {
     font-size: 2rem;
