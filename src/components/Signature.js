@@ -60,12 +60,16 @@ const Wrapper = styled.article`
 
     .img-container {
       width: 50%;
-      height: 400px;
+      height: 588px;
       background-image: url(${imgD});
       background-size: auto auto;
+      border-radius: 10px;
     }
     .text {
-      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 40%;
       margin-right: 3rem;
     }
   }

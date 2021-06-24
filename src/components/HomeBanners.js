@@ -13,7 +13,7 @@ const HomeBanners = () => {
     <Wrapper>
       <article className="orange">
         <div className="orange-text">
-          <h1>ZX9 SPEAKER</h1>
+          <h1>ZX9 <br></br>SPEAKER</h1>
           <p>
             Upgrade to premium speakers that are phenomenally built to deliver
             truly remarkable sound.
@@ -52,7 +52,6 @@ const Wrapper = styled.section`
     height: 80vh;
     background-color: var(--crl-primary);
     padding: 2rem;
-    margin-bottom: 2rem;
     border-radius: 10px;
     background-image: url(${speakerSVG});
     background-size: 165%;
@@ -61,6 +60,7 @@ const Wrapper = styled.section`
     background-repeat: no-repeat;
     position: relative;
     z-index: 1;
+    margin-bottom: 4.6rem;
   }
   .orange::after {
     content: "";
@@ -104,12 +104,15 @@ const Wrapper = styled.section`
     background-repeat: no-repeat;
     border-radius: 10px;
     padding: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 4.6rem;
   }
   .gray-text {
     position: relative;
     top: 30%;
     width: 50%;
+    h1 {
+      font-size: 2.7rem;
+    }
   }
   .white-btn {
     background-color: transparent;
@@ -136,6 +139,9 @@ const Wrapper = styled.section`
     background-color: var(--crl-gray-light);
     padding: 2rem;
     margin-bottom: 2rem;
+    h1 {
+      font-size: 2.7rem;
+    }
   }
 
   @media (min-width: 768px) {
@@ -165,20 +171,21 @@ const Wrapper = styled.section`
 
   @media (min-width: 1025px) {
     .orange {
-      background-position: -30% 35%;
-      background-size: 70%;
+      height: 560px;
+      background-position: -180% 0%;
+      background-size: 90%;
       max-height: 500px;
     }
     .orange::after {
       background-position: 20% 110%;
-      background-size: 20%;
+      background-size: 34%;
     }
     .orange-text {
       position: relative;
       top: 25%;
-      left: 50%;
+      left: 60%;
       text-align: start;
-      width: 40%;
+      width: 30%;
 
       p {
         width: 100%;
@@ -194,15 +201,14 @@ const Wrapper = styled.section`
       left: 10%;
     }
     .image-side {
-      
-      background-position:fill;
-      
+      background-position: fill;
+      margin-right: 2.7rem;
     }
     .text-side {
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     justify-content: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
   }
 `;

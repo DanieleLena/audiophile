@@ -146,6 +146,13 @@ const Wrapper = styled.footer`
       margin: auto;
       max-width: var(--max-width);
     }
+    .footer-container::after {
+      content: "";
+      width: 100px;
+      height: 4px;
+      background-color: var(--crl-primary);
+      position: absolute;
+    }
     ul {
       justify-content: flex-end;
     }
