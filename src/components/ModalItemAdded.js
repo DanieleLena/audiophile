@@ -14,6 +14,7 @@ const ModalItemAdded = () => {
 
 const Wrapper = styled.div`
   width: 20vw;
+  min-width: 300px;
   height: 50px;
   background-color: white;
   position: fixed;
