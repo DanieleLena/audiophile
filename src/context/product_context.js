@@ -50,9 +50,7 @@ export const ProductsProvider = ({ children }) => {
   const addToCart = (product, amount) => {
     dispatch({type: "ADD_TO_CART", payload: {product,amount}})
   }
-  const removeTocart = () => {
-    
-  }
+ 
 
   const removeAllToCart = () => {
 dispatch({type: "REMOVE_ALL_TO_CART"})
@@ -71,8 +69,8 @@ dispatch({type: "REMOVE_ALL_TO_CART"})
     let formatRelativePath = "";
 
     const mobile = window.matchMedia("(min-width: 0px)");
-    const tablet = window.matchMedia("(min-width: 768px)");
-    const desktop = window.matchMedia("(min-width: 1025px)");
+    // const tablet = window.matchMedia("(min-width: 768px)");
+    const desktop = window.matchMedia("(min-width: 768px)");
     
 
     if (desktop.matches) {
@@ -80,11 +78,11 @@ dispatch({type: "REMOVE_ALL_TO_CART"})
 
       return hostUrl + formatRelativePath + "?raw=true";
     }
-    if (tablet.matches) {
-      formatRelativePath = imageArray.tablet.slice(1);
+    // if (tablet.matches) {
+    //   formatRelativePath = imageArray.tablet.slice(1);
 
-      return hostUrl + formatRelativePath + "?raw=true";
-    }
+    //   return hostUrl + formatRelativePath + "?raw=true";
+    // }
     if (mobile.matches) {
       formatRelativePath = imageArray.mobile.slice(1);
 
@@ -118,7 +116,6 @@ dispatch({type: "REMOVE_ALL_TO_CART"})
         formatPrice,
         addToCart,
         removeAllToCart,
-        removeTocart,
         toggleAmount,
         getTotal
         

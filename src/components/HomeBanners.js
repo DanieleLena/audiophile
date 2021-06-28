@@ -146,8 +146,7 @@ const Wrapper = styled.section`
 
   @media (min-width: 768px) {
     .orange {
-      height: 55vh;
-
+      height: 65vh;
       background-position-y: -220px;
       background-size: 100%;
     }

@@ -66,16 +66,15 @@ const products_reducer = (state, action) => {
         }
         if (value === "dec") {
           let newAmount = item.amount - 1;
-          if (newAmount < 1) {
-            newAmount = 1;
-          }
           return { ...item, amount: newAmount };
         }
       }
-
       return item;
     });
-    return { ...state, cart: tempCart };
+    //remove the item with amount 0
+    const newCart = tempCart.filter((item) => {return item.amount > 0});
+    
+    return { ...state, cart: newCart };
   }
     if (action.type === "GET_TOTAL") {
 let totalAmount = 0;
