@@ -59,6 +59,7 @@ const Footer = () => {
 const Wrapper = styled.footer`
   width: 100%;
   background-color: var(--crl-black);
+  position: relative;
 
   .footer-container {
     display: flex;
@@ -145,11 +146,13 @@ const Wrapper = styled.footer`
       width: 90%;
       margin: auto;
       max-width: var(--max-width);
+      position: relative;
     }
     .footer-container::after {
       content: "";
       width: 100px;
       height: 4px;
+      top: 0; 
       background-color: var(--crl-primary);
       position: absolute;
     }
